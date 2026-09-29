@@ -37,3 +37,14 @@ The course instructor will also be sure to reference the exact folder and name o
 #### Reporting issues or errata
 
 If you encounter technical issues with this code as you complete the course (i.e. typos, missing code, broken links, etc.), please report those issues in the course through Coursera. Ensure the issue contains sufficient detail so that it can be properly addressed.
+
+#### Deploying with GitHub Actions
+
+The deployment workflow authenticates to Snowflake using key-pair authentication. Register the public key on the Snowflake user configured by the `SNOWFLAKE_USER` GitHub secret, and add these repository secrets:
+
+* `SNOWFLAKE_ACCOUNT` – your Snowflake account identifier.
+* `SNOWFLAKE_USER` – the Snowflake user with the public key registered.
+* `SNOWFLAKE_PRIVATE_KEY_RAW` – the PEM-formatted private key.
+* `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` – optional passphrase if the private key is encrypted.
+
+Do not add the private key or passphrase to the repository.
